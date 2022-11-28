@@ -15,7 +15,6 @@ const Categories = () => {
         });
     }, []);
 
-
     return (
         <section className='mt-8 p-6'>
             <h2 className="text-3xl text-center p-4">Product Categories</h2>
@@ -28,7 +27,7 @@ const Categories = () => {
                     <div className="card-body items-center text-center">
                         <h2 className="card-title">{category.name}</h2>
                         <div className="card-actions">
-                            <Link><button className="btn btn-primary">View Products</button></Link>
+                            <Link to={`/category/${category._id}`}><button className="btn btn-primary">View Products</button></Link>
                         </div>
                     </div>
                 </div>)
