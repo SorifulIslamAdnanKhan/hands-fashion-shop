@@ -49,6 +49,7 @@ const AddProducts = () => {
                         image: photoData.data.url,
                         seller: data.seller,
                         sellerEmail: user?.email,
+                        advertise: 'False',
                         location: data.location,
                         condition: data.condition,
                         resalePrice: parseInt(data.resalePrice),

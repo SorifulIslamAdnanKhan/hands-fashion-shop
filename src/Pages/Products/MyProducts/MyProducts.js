@@ -35,6 +35,25 @@ const MyProducts = () => {
         })
     }
 
+    const handleAdvertise = (product) =>{
+
+        const advertise = product.advertise;
+        console.log(advertise);
+        fetch(`http://localhost:5000/product/${product?._id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({advertise})
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success("Advertise posted successfully!");
+                }
+            })
+    }
+
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -62,7 +81,7 @@ const MyProducts = () => {
                                 <td>{product.name}</td>
                                 <td>$ {product.resalePrice}</td>
                                 <td>{product.salesStatus}</td>
-                                <td><button className='btn btn-primary'>Advertise</button></td>
+                                <td><button onClick={()=> handleAdvertise(product)} className='btn btn-primary'>Advertise</button></td>
                                 <td><button onClick={() => handleDeleteProduct(product._id)} className='btn bg-red-600 text-white'>Delete</button></td>
                             </tr>)
                         }
