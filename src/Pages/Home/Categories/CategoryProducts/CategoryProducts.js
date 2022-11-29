@@ -1,11 +1,13 @@
-import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../../../Shared/Loading/Loading';
+import ProductOrderModal from '../../../ProductOrderModal/ProductOrderModal';
+import { useState } from 'react';
 
 const CategoryProducts = () => {
 
     const category = useLoaderData();
+    const [product, setProduct] = useState([]);
 
     const { data: products, isLoading } = useQuery({
         
@@ -48,12 +50,13 @@ const CategoryProducts = () => {
                         <p className='text-lg'>Description: {product.description}</p>
                         <p className='text-lg'>Post Date: {product.postDate}</p>
                         <div className="card-actions">
-                            <button className="btn btn-primary">Book Now</button>
+                        <label onClick={()=> setProduct(product)} htmlFor="product-order-modal" className="btn btn-primary">Book Now</label>
                         </div>
                     </div>
                 </div>)
                 }
             </div>
+            <ProductOrderModal product={product}></ProductOrderModal>
         </section>
     );
 };

@@ -47,7 +47,6 @@ const Signup = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 toast.success(`User has been created successfully.`);
                 reset();
                 navigate(from, { replace: true });
@@ -80,8 +79,6 @@ const Signup = () => {
 
                 }
 
-                console.log(googleUser);
-
                 saveUserToDB({ ...googleUser, role: 'Buyer' });
 
                 setSignupError('');
@@ -98,7 +95,7 @@ const Signup = () => {
             <div className='w-96 p-6'>
                 <h2 className='text-2xl text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignup)}>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
@@ -106,17 +103,17 @@ const Signup = () => {
                             type='text'
                             {...register('name',
                                 { required: 'Name is required.' })}
-                            className="input input-bordered w-full max-w-xs" />
+                            className="input input-bordered w-full" />
                         {errors.name && <p className='text-red-600'>{errors.name.message}</p>}
                     </div>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type='email' {...register('email', { required: true })} className="input input-bordered w-full max-w-xs" />
+                        <input type='email' {...register('email', { required: true })} className="input input-bordered w-full" />
                         {errors.email && <p className='text-red-600'>{errors.email.message}</p>}
                     </div>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
@@ -127,14 +124,14 @@ const Signup = () => {
                                     pattern: { value: /(?=.*[A-Z])(?=.*[0-9])/, message: 'Password must be uppercase and number' },
                                     minLength: { value: 5, message: 'Password must be 5 characters long.' }
                                 })}
-                            className="input input-bordered w-full max-w-xs" />
+                            className="input input-bordered w-full" />
                         {errors.password && <p className='text-red-600'>{errors.password.message}</p>}
                     </div>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Role</span>
                         </label>
-                        <select {...register('role')} className="select select-bordered w-full max-w-xs">
+                        <select {...register('role')} className="select select-bordered w-full">
                             <option value="Buyer">Buyer</option>
                             <option value="Seller">Seller</option>
                         </select>
