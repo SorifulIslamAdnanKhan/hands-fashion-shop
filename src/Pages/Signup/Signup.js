@@ -4,26 +4,35 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { FcGoogle } from "react-icons/fc";
 import toast from 'react-hot-toast';
+import useAuthToken from '../../hooks/useAuthToken';
 
 const Signup = () => {
 
     const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [signupError, setSignupError] = useState('');
+    
+    const [signInUserEmail, setSignInUserEmail] = useState('')
+    const [token] = useAuthToken(signInUserEmail);
 
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
+    if(token){
+        navigate(from, { replace: true });
+    }
+
     // Insert User to Database
     const saveUserToDB = (user) => {
 
+        console.log(user);
         const userData = {
             name: user.name,
             email: user.email,
             role: user.role
         }
-        console.log(userData);
+       // console.log(userData);
 
         fetch(`http://localhost:5000/users`, {
             method: 'POST',
@@ -34,7 +43,7 @@ const Signup = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                setSignInUserEmail(user.email);
             })
     }
 
@@ -49,7 +58,6 @@ const Signup = () => {
                 const user = result.user;
                 toast.success(`User has been created successfully.`);
                 reset();
-                navigate(from, { replace: true });
 
                 const userData = {
                     displayName: data.name
@@ -72,18 +80,14 @@ const Signup = () => {
         googleSignIn()
             .then(result => {
                 const user = result.user;
-
                 const googleUser = {
                     name: user.displayName,
                     email: user.email
 
                 }
-
+                
                 saveUserToDB({ ...googleUser, role: 'Buyer' });
-
                 setSignupError('');
-                navigate(from, { replace: true });
-
             })
             .catch(error => {
                 setSignupError(error.message);

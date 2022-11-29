@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../../Shared/Loading/Loading';
+import { Link } from 'react-router-dom';
 
 const MyOrders = () => {
 
@@ -47,7 +48,17 @@ const MyOrders = () => {
                                 <th><img src={order.image} alt="" className="rounded-xl w-10" /></th>
                                 <td>{order.productName}</td>
                                 <td>$ {order.resalePrice}</td>
-                                <td><button className='btn btn-primary'>Pay</button></td>
+                                <td>
+                                    {
+                                        order.resalePrice && !order.paid && <Link to={`/dashboard/payment/${order._id}`}>
+                                            <button className='btn btn-primary'>Pay</button>
+                                        </Link>
+                                    }
+                                    {
+                                        order.resalePrice && order.paid && <button className='text-primary'>Paid</button>
+                                    }
+
+                                </td>
                             </tr>)
                         }
                     </tbody>
