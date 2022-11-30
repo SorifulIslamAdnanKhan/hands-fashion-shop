@@ -31,7 +31,6 @@ const Advertise = () => {
                         <h2 className="text-3xl text-center p-4">Advertised Products</h2>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                             {
-
                                 advertises?.map(advertise => <div key={advertise._id} className="card bg-base-100 shadow-xl">
                                     <figure className="px-10 pt-10">
                                         <img src={advertise.image} alt="Shoes" className="rounded-xl w-48" />
