@@ -38,7 +38,7 @@ const MyProducts = () => {
     const handleAdvertise = (product) =>{
 
         const advertise = product.advertise;
-        console.log(advertise);
+
         fetch(`https://ak-hands-fashion-shop-server.vercel.app/product/${product?._id}`, {
             method: 'PATCH',
             headers: {

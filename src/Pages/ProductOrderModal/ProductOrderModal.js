@@ -4,7 +4,6 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const ProductOrderModal = ({ product }) => {
-    console.log(product);
     const { user } = useContext(AuthContext);
     const { displayName, email } = user;
     const navigate = useNavigate();
@@ -41,7 +40,6 @@ const ProductOrderModal = ({ product }) => {
         })
             .then(res => res.json())
             .then(data =>{
-                console.log(data);
                 toast.success('Order is added successfully.')
                 navigate('/dashboard/my-orders');
             })

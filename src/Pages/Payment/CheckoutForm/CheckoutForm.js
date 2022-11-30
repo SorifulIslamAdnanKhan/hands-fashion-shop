@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({order}) => {
-    console.log(order);
-    const {_id,productId, resalePrice, name, email} = order;
+    const {_id, productId, resalePrice, name, email} = order;
     
     const [processing, setProcessing] = useState(false);
     const [success, setSuccess] = useState('');
@@ -85,9 +84,8 @@ const CheckoutForm = ({order}) => {
                 resalePrice,
                 transactionId: paymentIntent.id,
                 email,
-                orderId: productId,
-
-
+                productId: productId,
+                orderId: _id,
             }
 
             fetch('https://ak-hands-fashion-shop-server.vercel.app/payments', {
@@ -101,13 +99,11 @@ const CheckoutForm = ({order}) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     if (data.insertedId) {
                         setSuccess('Congrats! Your payment has completed');
                         setTrransactionId(paymentIntent.id);
                     }
                 })
-
         }
         setProcessing(false);
 

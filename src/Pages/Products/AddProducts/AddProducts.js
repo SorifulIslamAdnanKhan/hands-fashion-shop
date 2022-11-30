@@ -15,7 +15,6 @@ const AddProducts = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const imageHostKey = process.env.REACT_APP_IMBB_Key;
-    //  console.log(imageHostKey);
 
     const { data: categories, isLoading } = useQuery({
         queryKey: ['category'],
@@ -27,8 +26,6 @@ const AddProducts = () => {
     })
 
     const handleAddProduct = (data) => {
-
-        console.log(data);
 
         const image = data.image[0];
         const formData = new FormData();

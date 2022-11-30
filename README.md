@@ -8,14 +8,14 @@
     adminPassword:Adnan779@
 
 # Features
-    * A second watch shop.
+    * A second hanad watch online shop for buying and selling watches.
     * Seller can add products.
     * Seller can advertise products.
-    * Buyer can add order products.
+    * Buyer can add buy products.
     * Buyer can make card payment using stripe.
     * Admin can delete particular seler and buyer.
     * Seller/Buyer can sugin up and login to website.
-    * Role wise dashoboard for admin/ seller/buyers.
+    * Role wise dashoboard for admin/seller/buyers.
     * Buyer can also sign in using Google account.
     * Have a blog page to publish posts.
 
