@@ -9,7 +9,7 @@ const AllSellers = () => {
         queryKey: ['sellers'],
         queryFn: async () => {
             try {
-                const res = fetch(`http://localhost:5000/users/sellers`);
+                const res = fetch(`https://ak-hands-fashion-shop-server.vercel.app/users/sellers`);
                 const data = await (await res).json();
                 return data
             }
@@ -20,7 +20,7 @@ const AllSellers = () => {
     });
 
     const handleDeleteSeller = (id) =>{
-        fetch(`http://localhost:5000/users/seller/${id}`, {
+        fetch(`https://ak-hands-fashion-shop-server.vercel.app/users/seller/${id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())

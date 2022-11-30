@@ -7,7 +7,7 @@ const Categories = () => {
 
     const [categories, setCategories] = useState([]);
 
-    const url = 'http://localhost:5000/categories';
+    const url = 'https://ak-hands-fashion-shop-server.vercel.app/categories';
 
     useEffect(() => {
         axios.get(url).then((response) => {

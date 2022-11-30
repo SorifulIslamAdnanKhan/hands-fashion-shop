@@ -14,7 +14,7 @@ console.log(product);
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = fetch(`http://localhost:5000/products?category=${category?._id}`);
+                const res = fetch(`https://ak-hands-fashion-shop-server.vercel.app/products?category=${category?._id}`);
                 const data = await (await res).json();
                 return data
             }

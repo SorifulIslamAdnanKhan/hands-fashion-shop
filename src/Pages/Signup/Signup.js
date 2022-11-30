@@ -33,7 +33,7 @@ const Signup = () => {
             role: user.role
         }
 
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://ak-hands-fashion-shop-server.vercel.app/users`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

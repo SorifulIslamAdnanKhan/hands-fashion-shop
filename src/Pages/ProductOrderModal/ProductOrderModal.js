@@ -32,7 +32,7 @@ const ProductOrderModal = ({ product }) => {
             meetLocation: meetLocation,
         }
 
-        fetch(`http://localhost:5000/order`, {
+        fetch(`https://ak-hands-fashion-shop-server.vercel.app/order`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

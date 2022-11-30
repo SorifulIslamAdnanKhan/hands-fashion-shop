@@ -8,7 +8,7 @@ const Advertise = () => {
         queryKey: ['advertises'],
         queryFn: async () => {
             try {
-                const res = fetch(`http://localhost:5000/product/advertise`);
+                const res = fetch(`https://ak-hands-fashion-shop-server.vercel.app/product/advertise`);
                 const data = await (await res).json();
                 return data
             }

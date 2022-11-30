@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><CategoryProducts></CategoryProducts></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/categories/${params.id}`)
+                loader: ({params})=> fetch(`https://ak-hands-fashion-shop-server.vercel.app/categories/${params.id}`)
             },
         ]
     },
@@ -77,7 +77,7 @@ export const router = createBrowserRouter([
             {
                 path:'/dashboard/payment/:id',
                 element: <BuyerRoute><Payment></Payment></BuyerRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/orders/${params.id}`)
+                loader: ({params})=> fetch(`https://ak-hands-fashion-shop-server.vercel.app/orders/${params.id}`)
             },
         ]
     }

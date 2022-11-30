@@ -12,7 +12,7 @@ const MyOrders = () => {
         queryKey: ['orders'],
         queryFn: async () => {
             try {
-                const res = fetch(`http://localhost:5000/orders?email=${user?.email}`);
+                const res = fetch(`https://ak-hands-fashion-shop-server.vercel.app/orders?email=${user?.email}`);
                 const data = await (await res).json();
                 return data
             }

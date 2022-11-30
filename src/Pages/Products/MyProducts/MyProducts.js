@@ -12,7 +12,7 @@ const MyProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = fetch(`http://localhost:5000/my-products?sellerEmail=${user?.email}`);
+                const res = fetch(`https://ak-hands-fashion-shop-server.vercel.app/my-products?sellerEmail=${user?.email}`);
                 const data = await (await res).json();
                 return data
             }
@@ -23,7 +23,7 @@ const MyProducts = () => {
     });
 
     const handleDeleteProduct = (id) => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://ak-hands-fashion-shop-server.vercel.app/product/${id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())
@@ -39,7 +39,7 @@ const MyProducts = () => {
 
         const advertise = product.advertise;
         console.log(advertise);
-        fetch(`http://localhost:5000/product/${product?._id}`, {
+        fetch(`https://ak-hands-fashion-shop-server.vercel.app/product/${product?._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

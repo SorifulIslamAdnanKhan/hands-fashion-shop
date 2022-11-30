@@ -20,7 +20,7 @@ const AddProducts = () => {
     const { data: categories, isLoading } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/categories`);
+            const res = await fetch(`https://ak-hands-fashion-shop-server.vercel.app/categories`);
             const data = await res.json();
             return data;
         }
@@ -59,7 +59,7 @@ const AddProducts = () => {
                         description: data.description
                     }
 
-                    fetch(`http://localhost:5000/product`, {
+                    fetch(`https://ak-hands-fashion-shop-server.vercel.app/product`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
