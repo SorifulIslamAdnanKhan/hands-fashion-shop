@@ -30,39 +30,45 @@ const MyOrders = () => {
         <div>
             <h2 className='text-4xl text-center p-2 mb-4'>My Orders</h2>
             <div className="overflow-x-auto">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Product Image</th>
-                            <th>Product Name</th>
-                            <th>Resale price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            orders &&
-                            orders?.map((order, i) => <tr key={order._id}>
-                                <th>{i + 1}</th>
-                                <th><img src={order.image} alt="" className="rounded-xl w-10" /></th>
-                                <td>{order.productName}</td>
-                                <td>$ {order.resalePrice}</td>
-                                <td>
-                                    {
-                                        order.resalePrice && !order.paid && <Link to={`/dashboard/payment/${order._id}`}>
-                                            <button className='btn btn-primary'>Pay</button>
-                                        </Link>
-                                    }
-                                    {
-                                        order.resalePrice && order.paid && <button className='text-primary'>Paid</button>
-                                    }
+                {
+                    orders.length === 0 ?
 
-                                </td>
-                            </tr>)
-                        }
-                    </tbody>
-                </table>
+                        <div> <h2 className='text-2xl mt-2 text-primary text-center'>You have no order.</h2></div>
+                        :
+                        <table className="table w-full">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Product Image</th>
+                                    <th>Product Name</th>
+                                    <th>Resale price</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    orders &&
+                                    orders?.map((order, i) => <tr key={order._id}>
+                                        <th>{i + 1}</th>
+                                        <th><img src={order.image} alt="" className="rounded-xl w-10" /></th>
+                                        <td>{order.productName}</td>
+                                        <td>$ {order.resalePrice}</td>
+                                        <td>
+                                            {
+                                                order.resalePrice && !order.paid && <Link to={`/dashboard/payment/${order._id}`}>
+                                                    <button className='btn btn-primary'>Pay</button>
+                                                </Link>
+                                            }
+                                            {
+                                                order.resalePrice && order.paid && <button className='text-primary'>Paid</button>
+                                            }
+
+                                        </td>
+                                    </tr>)
+                                }
+                            </tbody>
+                        </table>
+                }
             </div>
         </div>
     );

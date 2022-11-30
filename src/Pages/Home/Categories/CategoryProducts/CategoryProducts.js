@@ -8,7 +8,7 @@ const CategoryProducts = () => {
 
     const category = useLoaderData();
     const [product, setProduct] = useState([]);
-
+console.log(product);
     const { data: products, isLoading } = useQuery({
         
         queryKey: ['products'],

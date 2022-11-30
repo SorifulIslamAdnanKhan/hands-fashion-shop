@@ -32,7 +32,6 @@ const Signup = () => {
             email: user.email,
             role: user.role
         }
-       // console.log(userData);
 
         fetch(`http://localhost:5000/users`, {
             method: 'POST',
@@ -83,7 +82,6 @@ const Signup = () => {
                 const googleUser = {
                     name: user.displayName,
                     email: user.email
-
                 }
                 
                 saveUserToDB({ ...googleUser, role: 'Buyer' });

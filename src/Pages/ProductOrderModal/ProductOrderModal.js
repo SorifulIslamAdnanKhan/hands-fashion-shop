@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const ProductOrderModal = ({ product }) => {
-
+    console.log(product);
     const { user } = useContext(AuthContext);
     const { displayName, email } = user;
     const navigate = useNavigate();
@@ -22,6 +22,7 @@ const ProductOrderModal = ({ product }) => {
         const meetLocation = form.meetLocation.value;
 
         const order = {
+            productId: product._id,
             name: name,
             email: email,
             productName: productName,

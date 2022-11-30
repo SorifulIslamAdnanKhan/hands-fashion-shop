@@ -3,7 +3,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({order}) => {
     console.log(order);
-    const {_id, resalePrice, name, email} = order;
+    const {_id,productId, resalePrice, name, email} = order;
     
     const [processing, setProcessing] = useState(false);
     const [success, setSuccess] = useState('');
@@ -85,7 +85,8 @@ const CheckoutForm = ({order}) => {
                 resalePrice,
                 transactionId: paymentIntent.id,
                 email,
-                orderId: _id
+                orderId: productId,
+
 
             }
 
