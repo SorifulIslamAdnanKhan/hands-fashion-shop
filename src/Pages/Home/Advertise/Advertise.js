@@ -37,9 +37,9 @@ const Advertise = () => {
                                     </figure>
                                     <div className="card-body items-center text-center">
                                         <h2 className="card-title">{advertise.name}</h2>
-                                        <div className="card-actions">
+                                        {/* <div className="card-actions">
                                             <button className="btn btn-primary">Buy Now</button>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>)
                             }

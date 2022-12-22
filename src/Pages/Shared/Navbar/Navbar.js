@@ -29,7 +29,6 @@ const Navbar = () => {
         }
     </React.Fragment>
 
-
     return (
         <div className="navbar bg-primary text-primary-content p-6">
             <div className="navbar-start">

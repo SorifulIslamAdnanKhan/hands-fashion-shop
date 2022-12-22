@@ -11,7 +11,7 @@
     * A second hanad watch online shop for buying and selling watches.
     * Seller can add products.
     * Seller can advertise products.
-    * Buyer can add buy products.
+    * Buyer can buy products.
     * Buyer can make card payment using stripe.
     * Admin can delete particular seler and buyer.
     * Seller/Buyer can sugin up and login to website.
