@@ -58,7 +58,6 @@ const AllSellers = () => {
                                 <th>{i + 1}</th>
                                 <td>{seller.name}</td>
                                 <td>$ {seller.email}</td>
-                                <td><button className='btn btn-primary'>Verify</button></td>
                                 <td><button onClick={() => handleDeleteSeller(seller._id)} className='btn bg-red-600 text-white'>Delete</button></td>
                             </tr>)
                         }
