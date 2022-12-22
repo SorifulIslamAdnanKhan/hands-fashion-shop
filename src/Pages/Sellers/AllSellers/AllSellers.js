@@ -47,7 +47,6 @@ const AllSellers = () => {
                             <th></th>
                             <th>seller Name</th>
                             <th>Seller Email</th>
-                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
